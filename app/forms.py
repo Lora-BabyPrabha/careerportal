@@ -1,6 +1,27 @@
 from django import forms
-from .models import ContactMessage, JobApplication
+from .models import HomeContent, AboutPage, ContactMessage, Job, JobDetails, JobApplication
 
+class HomeContentForm(forms.ModelForm):
+    class Meta:
+        model = HomeContent
+        fields = '__all__'
+
+class AboutPageForm(forms.ModelForm):
+    class Meta:
+        model = AboutPage
+        fields = '__all__'
+
+class JobForm(forms.ModelForm):
+    class Meta:
+        model = Job
+        fields = '__all__'
+
+class JobDetailsForm(forms.ModelForm):
+    class Meta:
+        model = JobDetails
+        fields = '__all__'
+from django import forms
+from .models import ContactMessage, JobApplication
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -11,4 +32,5 @@ class ContactForm(forms.ModelForm):
 class JobApplicationForm(forms.ModelForm):
     class Meta:
         model = JobApplication
-        fields = ['full_name', 'email', 'phone', 'address', 'resume']
+        fields = ['job', 'full_name', 'email', 'phone', 'address', 'resume']
+

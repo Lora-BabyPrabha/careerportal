@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard | LoRa IT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/admin-dashboard.css' %}">
+</head>
+<body>
+
+  <header class="admin-header">
+    <div class="logo">LoRa Admin Dashboard</div>
+    <div class="welcome">Welcome, Admin</div>
+  </header>
+
+  <main class="dashboard">
+    <div class="card">
+      <h3>Manage Jobs</h3>
+      <p>Add, Edit, or Delete job listings.</p>
+      <a href="{% url 'manage_jobs' %}">Go to Jobs</a>
+    </div>
+
+    <div class="card">
+      <h3>Job Applications</h3>
+      <p>View submitted job applications.</p>
+      <a href="{% url 'view_applications' %}">View Applications</a>
+    </div>
+
+    <div class="card">
+      <h3>Edit Home Page</h3>
+      <p>Update home page content and stats.</p>
+      <a href="{% url 'manage_home' %}">Edit Home Content</a>
+    </div>
+
+    <div class="card">
+      <h3>Edit About Page</h3>
+      <p>Change about section and company mission.</p>
+      <a href="{% url 'manage_about' %}">Edit About Content</a>
+    </div>
+
+    <div class="card">
+      <h3>Contact Messages</h3>
+      <p>Read user contact messages.</p>
+      <a href="{% url 'view_messages' %}">View Messages</a>
+    </div>
+  </main>
+
+</body>
+</html>

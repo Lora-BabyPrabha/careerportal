@@ -86,3 +86,16 @@ class JobApplication(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.job.title}"
+from django.db import models
+
+class AboutContent(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    section_1_title = models.CharField(max_length=100)
+    section_1_body = models.TextField()
+    section_2_title = models.CharField(max_length=100)
+    section_2_body = models.TextField()
+    core_values = models.TextField(help_text="Separate values with commas")
+
+    def __str__(self):
+        return self.title
