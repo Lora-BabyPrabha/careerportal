@@ -1,0 +1,101 @@
+:root {
+  --bg: #f0f2f5;
+  --text: #333;
+  --card-bg: #fff;
+  --card-hover: #32cd32;
+  --primary: #2e8b57;
+  --black: #000;
+  --header-bg: #1a1a1a;
+  --footer-text: #94a3b8;
+  --btn-gradient: linear-gradient(135deg, #2e8b57, #000000);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background-color: var(--header-bg);
+  padding: 1rem 2rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--card-hover);
+}
+
+.dashboard {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: auto;
+  gap: 2rem;
+}
+
+/* Card Styling */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  border-top: 4px solid var(--card-hover);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(50, 205, 50, 0.15);
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: #555;
+  line-height: 1.4;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: white;
+  background: var(--btn-gradient);
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.card a:hover {
+  background: linear-gradient(135deg, #1e6b43, #111);
+}
+
+/* Optional: Responsive text size */
+@media (max-width: 600px) {
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card a {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

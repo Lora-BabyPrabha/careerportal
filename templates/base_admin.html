@@ -7,17 +7,9 @@
   <link rel="stylesheet" href="{% static 'css/admin.css' %}">
 </head>
 <body>
-  <header>
-    <div class="logo">Admin Panel</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
-        <li><a href="{% url 'manage_home' %}">Edit Home</a></li>
-        <li><a href="{% url 'manage_about' %}">Edit About</a></li>
-        <li><a href="{% url 'view_messages' %}">Contact Messages</a></li>
-        <li><a href="{% url 'manage_jobs' %}">Jobs</a></li>
-      </ul>
-    </nav>
+  <header class="admin-header">
+    <div class="logo">LoRa Admin Dashboard</div>
+    <div class="welcome">Welcome, Admin</div>
   </header>
 
   <main>

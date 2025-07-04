@@ -1,86 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Edit Home Content</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9fafb;
-      margin: 0;
-      padding: 20px;
-    }
+{% extends "base_admin.html" %}
+{% block title %}Edit Home Content{% endblock %}
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      border-radius: 8px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #2e8b57;
-      margin-bottom: 1.5rem;
-    }
-
-    form {
-      display: grid;
-      grid-gap: 1rem;
-    }
-
-    label {
-      font-weight: 600;
-    }
-
-    input[type="text"],
-    textarea {
-      width: 100%;
-      padding: 0.6rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: vertical;
-    }
-
-    button {
-      padding: 0.7rem 1.4rem;
-      background-color: #2e8b57;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    button:hover {
-      background-color: #256d48;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: #2e8b57;
-      text-decoration: none;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a class="back-link" href="{% url 'admin_dashboard' %}">&larr; Back to Dashboard</a>
-    <h2>Edit Home Page Content</h2>
-
+{% block content %}
+  <div class="admin-form-container">
+    <h1>Edit Home Content</h1>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Save Changes</button>
+      <button type="submit">Save</button>
     </form>
+    <a href="{% url 'admin_dashboard' %}" class="back-link">← Back to Dashboard</a>
   </div>
-</body>
-</html>
+{% endblock %}

@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 :root {
-  --bg: #f9fafb;
-  --primary: #2e8b57;
+  --bg: #f0f2f5;
   --text: #333;
   --card-bg: #fff;
+  --card-hover: #32cd32;
+  --primary: #2e8b57;
   --header-bg: #1a1a1a;
-  --hover: #32cd32;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
   margin: 0;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
 }
@@ -17,30 +19,40 @@ body {
 header {
   background-color: var(--header-bg);
   padding: 1rem 2rem;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
 .logo {
   font-size: 1.5rem;
-  color: var(--hover);
-  font-weight: 600;
+  color: var(--card-hover);
+  font-weight: bold;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #ddd;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--card-hover);
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
+  background: var(--card-bg);
   padding: 2rem;
-  background-color: var(--card-bg);
-  border-radius: 8px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 h1 {
-  color: var(--primary);
   text-align: center;
+  color: var(--primary);
   margin-bottom: 1.5rem;
 }
 
@@ -51,7 +63,7 @@ form {
 }
 
 input, textarea {
-  padding: 0.8rem;
+  padding: 0.7rem;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -66,5 +78,5 @@ button {
 }
 
 button:hover {
-  background-color: #1e6d45;
+  background-color: #226d46;
 }
