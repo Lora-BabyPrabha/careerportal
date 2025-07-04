@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Us | LoRa IT Innovations Pvt Ltd</title>
+  <title>{{ about.title }} | LoRa IT Innovations Pvt Ltd</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{% static 'css/about.css' %}">
 </head>
@@ -12,37 +13,37 @@
   <header>
     <div class="logo">LoRa IT Innovations Pvt Ltd</div>
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'jobs' %}">Jobs</a></li>
+      <li><a href="{% url 'about' %}">About Us</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
     </ul>
   </header>
 
   <section class="hero">
-    <h1>About Us</h1>
-    <p>We deliver secure, scalable, and smart IT solutions that empower businesses to grow and succeed.</p>
+    <h1>{{ about.title }}</h1>
+    <p>{{ about.tagline }}</p>
   </section>
 
   <section class="content">
     <div class="section">
       <h2>Who We Are</h2>
-      <p>LoRa IT Innovations Pvt Ltd is a leading software company committed to crafting powerful, efficient, and scalable solutions. With a focus on client success, we blend technical expertise and creative thinking to solve real-world business problems.</p>
+      <p>{{ about.who_we_are }}</p>
     </div>
 
     <div class="section">
       <h2>Our Vision</h2>
-      <p>To become a globally recognized name in technology that drives transformation, growth, and innovation across industries.</p>
+      <p>{{ about.vision }}</p>
     </div>
 
     <div class="section">
       <h2>Our Mission</h2>
-      <p>We aim to build intuitive products and offer services that exceed expectations — while fostering a culture of integrity, collaboration, and continuous improvement.</p>
+      <p>{{ about.mission }}</p>
     </div>
 
     <div class="section">
       <h2>Core Values</h2>
-      <p>At LoRa IT, our values are at the core of everything we do — <strong>Innovation</strong>, <strong>Integrity</strong>, <strong>Customer Success</strong>, and <strong>Team Spirit</strong>.</p>
+      <p>{{ about.core_values }}</p>
     </div>
   </section>
 
@@ -56,10 +57,10 @@
       <div>
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="jobs.html">Jobs</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'jobs' %}">Jobs</a></li>
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
       </div>
       <div>

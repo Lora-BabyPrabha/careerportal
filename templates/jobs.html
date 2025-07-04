@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +13,10 @@
   <header>
     <div class="logo">LoRa IT Innovations Pvt Ltd</div>
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="jobs.html" style="color: var(--accent);">Jobs</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'jobs' %}" style="color: var(--accent);">Jobs</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
     </ul>
   </header>
 
@@ -24,61 +25,89 @@
     <p>Explore exciting opportunities and take the next step in your career with LoRa IT.</p>
   </section>
 
-  <div class="filters">
-    <input type="text" placeholder="Search job title..." />
-    <select>
-      <option>All Departments</option>
-      <option>Engineering</option>
-      <option>HR</option>
-      <option>Design</option>
-    </select>
-    <select>
-      <option>All Types</option>
-      <option>Full-time</option>
-      <option>Part-time</option>
-      <option>Internship</option>
-    </select>
-    <select>
-      <option>All Locations</option>
-      <option>Hyderabad</option>
-      <option>Bangalore</option>
-      <option>Remote</option>
-    </select>
-  </div>
+  <!-- Filter Form -->
+  <form method="get" action="{% url 'jobs' %}" class="filters">
+    <input type="text" name="search" placeholder="Search job title..." value="{{ request.GET.search|default_if_none:'' }}">
 
+    <select name="department">
+      <option value="">All Departments</option>
+      <option value="Engineering" {% if request.GET.department == 'Engineering' %}selected{% endif %}>Engineering</option>
+      <option value="HR" {% if request.GET.department == 'HR' %}selected{% endif %}>HR</option>
+      <option value="Design" {% if request.GET.department == 'Design' %}selected{% endif %}>Design</option>
+    </select>
+
+    <select name="type">
+      <option value="">All Types</option>
+      <option value="Full-time" {% if request.GET.type == 'Full-time' %}selected{% endif %}>Full-time</option>
+      <option value="Part-time" {% if request.GET.type == 'Part-time' %}selected{% endif %}>Part-time</option>
+      <option value="Internship" {% if request.GET.type == 'Internship' %}selected{% endif %}>Internship</option>
+    </select>
+
+    <select name="location">
+      <option value="">All Locations</option>
+      <option value="Hyderabad" {% if request.GET.location == 'Hyderabad' %}selected{% endif %}>Hyderabad</option>
+      <option value="Bangalore" {% if request.GET.location == 'Bangalore' %}selected{% endif %}>Bangalore</option>
+      <option value="Remote" {% if request.GET.location == 'Remote' %}selected{% endif %}>Remote</option>
+    </select>
+
+    <button type="submit">Filter</button>
+  </form>
+
+  <!-- Job Listings -->
   <section class="job-listings">
-    <div class="job-card">
-      <h3>Frontend Developer</h3>
-      <div class="job-meta">Engineering | Hyderabad | 2+ yrs | ₹6-10 LPA</div>
-      <p>Build scalable and responsive user interfaces using React.js, HTML, CSS and modern frameworks.</p>
-      <a href="job-details.html" class="btn-apply">View Details</a>
-    </div>
-
-    <div class="job-card">
-      <h3>Backend Developer</h3>
-      <div class="job-meta">Engineering | Bangalore | 3+ yrs | ₹10-14 LPA</div>
-      <p>Work with Django, REST APIs, PostgreSQL, and Docker to power secure and scalable backends.</p>
-      <a href="job-details.html" class="btn-apply">View Details</a>
-    </div>
-
-    <div class="job-card">
-      <h3>UI/UX Designer</h3>
-      <div class="job-meta">Design | Remote | 1+ yrs | ₹4-6 LPA</div>
-      <p>Design intuitive interfaces using Figma/Adobe XD with a strong focus on user experience and accessibility.</p>
-      <a href="job-details.html" class="btn-apply">View Details</a>
-    </div>
-
-    <div class="job-card">
-      <h3>HR Executive</h3>
-      <div class="job-meta">HR | Hyderabad | 1-3 yrs | ₹3-5 LPA</div>
-      <p>Manage hiring, employee engagement, and ensure smooth onboarding and documentation processes.</p>
-      <a href="job-details.html" class="btn-apply">View Details</a>
-    </div>
+    {% for job in jobs %}
+      <div class="job-card">
+        <h3>{{ job.title }}</h3>
+        <div class="job-meta">{{ job.department }} | {{ job.location }} | {{ job.experience }} | {{ job.salary }}</div>
+        <p>{{ job.description|truncatechars:200 }}</p>
+        <a href="{% url 'job_detail' job.id %}" class="btn-apply">View Details</a>
+      </div>
+    {% empty %}
+      <p style="text-align:center;">No job openings available right now.</p>
+    {% endfor %}
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 LoRa IT Innovations Pvt Ltd. All rights reserved.</p>
+    <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1200px; margin: auto; padding: 2rem 1rem;">
+      <div>
+        <h3 style="color:white;"><i class="fas fa-briefcase" style="margin-right: 8px;"></i>LoRaCareerPortal</h3>
+        <p>Building careers and connecting talent with opportunities. Join our team and make a difference.</p>
+      </div>
+      <div>
+        <h4 style="color:white;">Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="{% url 'home' %}" style="color: var(--footer-text); text-decoration: none;">Home</a></li>
+          <li><a href="{% url 'jobs' %}" style="color: var(--footer-text); text-decoration: none;">Jobs</a></li>
+          <li><a href="{% url 'about' %}" style="color: var(--footer-text); text-decoration: none;">About Us</a></li>
+          <li><a href="{% url 'contact' %}" style="color: var(--footer-text); text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:white;">For Candidates</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="#" style="color: var(--footer-text); text-decoration: none;">Browse Jobs</a></li>
+          <li><a href="#" style="color: var(--footer-text); text-decoration: none;">Career Tips</a></li>
+          <li><a href="#" style="color: var(--footer-text); text-decoration: none;">Resume Builder</a></li>
+          <li><a href="#" style="color: var(--footer-text); text-decoration: none;">Interview Prep</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:white;">Contact Info</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><i class="fas fa-envelope"></i> careerportal@gmail.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom" style="text-align: center; padding: 1rem; color: #64748b;">
+      &copy; 2025 LoRaCareerPortal. All rights reserved. Built with ❤️ for connecting talent.
+    </div>
   </footer>
 
+  <!-- Font Awesome (for footer icons) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

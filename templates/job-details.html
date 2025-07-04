@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,56 +10,35 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="logo">LoRa IT Innovations Pvt Ltd</div>
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Jobs</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'jobs' %}">Jobs</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
     </ul>
   </header>
 
+  <!-- Job Details and Application Form -->
   <div class="container">
-    <!-- Job Details (Left Section) -->
+    <!-- Job Info (Left Side) -->
     <div class="left">
-      <h2>Senior Frontend Developer</h2>
-      <p><strong>Location:</strong> Remote | <strong>Experience:</strong> 5+ Years | <strong>Type:</strong> Full-time</p>
+      <h2>{{ job.title }}</h2>
+      <p><strong>Location:</strong> {{ job.location }} |
+         <strong>Experience:</strong> {{ job.experience }} |
+         <strong>Type:</strong> Full-time</p>
 
       <h4>Job Description</h4>
-      <p>We are looking for a Senior Frontend Developer to join our team. You will be responsible for building modern, responsive web applications using React.js, TypeScript, and other frontend technologies.</p>
-
-      <h4>Requirements</h4>
-      <ul>
-        <li>Bachelor's degree in Computer Science or related field</li>
-        <li>Strong knowledge in React.js, HTML, CSS, JavaScript</li>
-        <li>Experience with REST APIs and UI/UX best practices</li>
-        <li>Ability to work collaboratively with design and backend teams</li>
-      </ul>
-
-      <h4>Responsibilities</h4>
-      <ul>
-        <li>Build and maintain reusable components</li>
-        <li>Work closely with designers and backend developers</li>
-        <li>Ensure responsive and cross-browser compatibility</li>
-        <li>Participate in code reviews and team discussions</li>
-      </ul>
-
-      <h4>Benefits</h4>
-      <ul>
-        <li>Competitive salary and bonus</li>
-        <li>Flexible work hours and remote options</li>
-        <li>Professional development allowance</li>
-        <li>Health insurance and wellness programs</li>
-        <li>Paid time off and holidays</li>
-      </ul>
+      <p>{{ job.description }}</p>
     </div>
 
-    <!-- Application Form (Right Section) -->
+    <!-- Application Form (Right Side) -->
     <div class="right job-form">
       <h3>Apply for this Job</h3>
-      <form action="#" method="POST" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <label>Full Name *</label>
         <input type="text" name="full_name" required>
 
@@ -78,6 +58,54 @@
       </form>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1200px; margin: auto; padding: 2rem 1rem; background-color: #0f172a; color: white;">
+
+      <div>
+        <h3><i class="fas fa-briefcase" style="margin-right: 8px;"></i>LoRaCareerPortal</h3>
+        <p>Building careers and connecting talent with opportunities. Join our team and make a difference.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="{% url 'home' %}" style="color: #94a3b8;">Home</a></li>
+          <li><a href="{% url 'jobs' %}" style="color: #94a3b8;">Jobs</a></li>
+          <li><a href="{% url 'about' %}" style="color: #94a3b8;">About</a></li>
+          <li><a href="{% url 'contact' %}" style="color: #94a3b8;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>For Candidates</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="#" style="color: #94a3b8;">Browse Jobs</a></li>
+          <li><a href="#" style="color: #94a3b8;">Career Tips</a></li>
+          <li><a href="#" style="color: #94a3b8;">Resume Builder</a></li>
+          <li><a href="#" style="color: #94a3b8;">Interview Prep</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact Info</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><i class="fas fa-envelope"></i> careerportal@gmail.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; padding: 1rem; background-color: #0f172a; color: #64748b;">
+      &copy; 2025 LoRaCareerPortal. All rights reserved. Built with ❤️ for connecting talent.
+    </div>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
