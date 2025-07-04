@@ -1,104 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
 :root {
   --bg: #f0f2f5;
   --text: #333;
   --card-bg: #fff;
   --card-hover: #32cd32;
   --primary: #2e8b57;
+  --black: #000;
   --header-bg: #1a1a1a;
-  --button-gradient: linear-gradient(to right, #2e8b57, #000000);
+  --footer-text: #94a3b8;
+  --btn-gradient: linear-gradient(135deg, #2e8b57, #000000);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
 }
 
 header {
   background-color: var(--header-bg);
   padding: 1rem 2rem;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
 }
 
 .logo {
-  font-size: 1.5rem;
-  color: var(--card-hover);
-  font-weight: bold;
-}
-
-nav a {
-  margin: 0 1rem;
-  color: #ddd;
-  text-decoration: none;
-}
-
-nav a:hover {
+  font-size: 1.4rem;
+  font-weight: 600;
   color: var(--card-hover);
 }
 
-.admin-form-container {
-  max-width: 600px;
-  margin: 3rem auto;
-  background: var(--card-bg);
+.dashboard {
   padding: 2rem;
-  border-radius: 10px;
-  border: 1px solid black;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: auto;
+  gap: 2rem;
 }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 20px;
+    }
 
-.admin-form-container h1 {
-  text-align: center;
-  color: var(--primary);
-  margin-bottom: 2rem;
-}
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
+    h2 {
+      text-align: center;
+      color: #2e8b57;
+      margin-bottom: 1.5rem;
+    }
 
-input,
-textarea,
-select {
-  padding: 0.75rem;
-  border: 1px solid black;
-  border-radius: 6px;
-  width: 100%;
-  font-size: 16px;
-  box-sizing: border-box;
-  background-color: #f9fafb;
-}
+    form {
+      display: grid;
+      grid-gap: 1rem;
+    }
 
-button {
-  background: var(--button-gradient);
-  color: white;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-}
+    label {
+      font-weight: 600;
+    }
 
-button:hover {
-  opacity: 0.9;
-}
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
 
-.back-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 500;
-}
+    button {
+      padding: 0.7rem 1.4rem;
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
 
-.back-link:hover {
-  text-decoration: underline;
-}
+    button:hover {
+      background-color: #256d48;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #2e8b57;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }

@@ -1,21 +1,30 @@
-{% extends "base_admin.html" %}
-
-{% block title %}Edit Home Content{% endblock %}
-
-{% block head %}
-  {% load static %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Home Content</title>
   <link rel="stylesheet" href="{% static 'css/admin_manage_home.css' %}">
-{% endblock %}
+</head>
+<body>
+    
+    <header class="admin-header">
+        <div class="logo">LoRa Admin Dashboard</div>
+        <div class="welcome">Welcome, Admin</div>
+   <div class="container">
+    <a class="back-link" href="{% url 'admin_dashboard' %}">&larr; Back to Dashboard</a>
+    <h2>Edit Home Page Content</h2>
 
-{% block content %}
-  <div class="admin-form-container">
-    <h1>Edit Home Content</h1>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Save</button>
+      <button type="submit">Save Changes</button>
     </form>
-    <a href="{% url 'admin_dashboard' %}" class="back-link">← Back to Dashboard</a>
   </div>
+<<<<<<< HEAD
 {% endblock %}
 
+=======
+</body>
+</html>
+>>>>>>> 7f4947b13f4c8db4250cdc98e422147353313305
