@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | LoRa IT Innovations Pvt Ltd</title>
+
+  <!-- Google Fonts and Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">LoRa IT Innovations Pvt Ltd</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">&#9776;</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to LoRa IT</h1>
+        <p>Innovating the future through technology. Discover who we are and why people love working with us.</p>
+        <a href="careers.html" class="cta-btn">Explore Careers</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <h2>Why Join LoRa?</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <i class="fas fa-user-friends"></i>
+          <h3>Team Culture</h3>
+          <p>We believe in collaboration, innovation, and growth together.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Cutting-Edge Tech</h3>
+          <p>Work on the latest technologies like AI, cloud, and DevOps.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-briefcase"></i>
+          <h3>Flexible Roles</h3>
+          <p>Choose from remote, hybrid, or in-office work styles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to take the next step in your career?</h2>
+      <p>Find your dream job and apply now with confidence.</p>
+      <a href="jobs.html">Browse Openings</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 LoRa IT Innovations Pvt Ltd. All rights reserved.
+  </footer>
+
+  <!-- Hamburger Menu Script -->
+  <script>
+    document.querySelector(".hamburger").onclick = () => {
+      document.querySelector(".nav-links").classList.toggle("open");
+    };
+  </script>
+</body>
+</html>
