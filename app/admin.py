@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HomeContent, ContactMessage, AboutPage, JobDetails
+from .models import HomeContent, ContactMessage, AboutPage, JobDetails, JobApplication 
 
 admin.site.register(HomeContent)
 admin.site.register(ContactMessage)
@@ -16,3 +16,8 @@ class JobDetailsAdmin(admin.ModelAdmin):
     search_fields = ['title', 'location', 'description']
 
 
+@admin.register(JobApplication)
+class JobApplicationAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'email', 'phone', 'job', 'submitted_at']
+    list_filter = ['job', 'submitted_at']
+    search_fields = ['full_name', 'email', 'phone', 'job__title']

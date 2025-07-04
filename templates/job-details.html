@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Job Details | LoRa IT Innovations Pvt Ltd</title>
+  <title>{{ job.title }} | LoRa IT Innovations Pvt Ltd</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{% static 'css/job-details.css' %}">
 </head>
@@ -26,12 +26,29 @@
     <!-- Job Info (Left Side) -->
     <div class="left">
       <h2>{{ job.title }}</h2>
-      <p><strong>Location:</strong> {{ job.location }} |
-         <strong>Experience:</strong> {{ job.experience }} |
-         <strong>Type:</strong> Full-time</p>
+      <p>
+        <strong>Location:</strong> {{ job.location }} |
+        <strong>Experience:</strong> {{ job.experience }} |
+        <strong>Type:</strong> {{ job.job_type }}
+      </p>
 
       <h4>Job Description</h4>
       <p>{{ job.description }}</p>
+
+      {% if job.requirements %}
+      <h4>Requirements</h4>
+      <p>{{ job.requirements }}</p>
+      {% endif %}
+
+      {% if job.responsibilities %}
+      <h4>Responsibilities</h4>
+      <p>{{ job.responsibilities }}</p>
+      {% endif %}
+
+      {% if job.benefits %}
+      <h4>Benefits</h4>
+      <p>{{ job.benefits }}</p>
+      {% endif %}
     </div>
 
     <!-- Application Form (Right Side) -->
