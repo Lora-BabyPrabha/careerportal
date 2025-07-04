@@ -32,7 +32,7 @@ class ContactForm(forms.ModelForm):
 class JobApplicationForm(forms.ModelForm):
     class Meta:
         model = JobApplication
-        fields = ['job', 'full_name', 'email', 'phone', 'address', 'resume']
+        fields = ['job', 'full_name', 'email', 'phone', 'cover_letter', 'resume']
 
 
 from django import forms
