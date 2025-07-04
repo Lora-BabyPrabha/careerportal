@@ -70,12 +70,32 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import HomeContent, AboutPage, ContactMessage, JobApplication, JobDetails
 from .forms import HomeContentForm, AboutPageForm, JobDetailsForm
 
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+def admin_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if username == 'admin' and password == 'admin':
+            request.session['admin_logged_in'] = True
+            return redirect('admin_dashboard')
+        else:
+            messages.error(request, 'Invalid username or password.')
+
+    return render(request, 'admin_login.html')
+
+
 def admin_dashboard(request):
     home = HomeContent.objects.first()
     about = AboutPage.objects.first()
     job_count = JobDetails.objects.count()
     app_count = JobApplication.objects.count()
     msg_count = ContactMessage.objects.count()
+    if not request.session.get('admin_logged_in'):
+        return redirect('admin_login')
     return render(request, 'admin_dashboard.html', {
         'home': home,
         'about': about,

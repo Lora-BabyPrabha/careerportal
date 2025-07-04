@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 :root {
   --bg: #f0f2f5;
   --text: #333;
@@ -20,92 +22,89 @@
 body {
   background-color: var(--bg);
   color: var(--text);
+  padding: 2rem;
 }
+
+.container {
+  max-width: 700px;       /* reduced from 800px */
+  margin: 2rem auto;      /* added spacing around the box */
+  background: var(--card-bg);
+  padding: 1.5rem;        /* slightly reduced padding */
+  border-radius: 8px;
+  border: 1px solid var(--black);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  resize: vertical;
+}
+
+button {
+  background: var(--btn-gradient);
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 150px;
+}
+
+button:hover {
+  background-color: #1e4631;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
 
 header {
   background-color: var(--header-bg);
   padding: 1rem 2rem;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
 }
 
 .logo {
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--card-hover);
+  color: var(--card-hover); /* Green */
 }
 
-.dashboard {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-auto-rows: auto;
-  gap: 2rem;
+.admin-welcome {
+  font-weight: 500;
+  color: #ffffff;
 }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9fafb;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      border-radius: 8px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #2e8b57;
-      margin-bottom: 1.5rem;
-    }
-
-    form {
-      display: grid;
-      grid-gap: 1rem;
-    }
-
-    label {
-      font-weight: 600;
-    }
-
-    input[type="text"],
-    textarea {
-      width: 100%;
-      padding: 0.6rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: vertical;
-    }
-
-    button {
-      padding: 0.7rem 1.4rem;
-      background-color: #2e8b57;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    button:hover {
-      background-color: #256d48;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: #2e8b57;
-      text-decoration: none;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
