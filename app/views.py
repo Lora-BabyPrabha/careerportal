@@ -115,18 +115,27 @@ def delete_message(request, pk):
     message.delete()
     return redirect('view_messages')
 
+from .models import JobApplication
+
 def view_applications(request):
-    applications = JobApplication.objects.all().order_by('-submitted_at')
-    return render(request, 'admin_applications.html', {'applications': applications})
+    applications = JobApplication.objects.select_related('job').all().order_by('-submitted_at')
+    return render(request, 'view_applications.html', {'applications': applications})
+
 
 def delete_application(request, pk):
-    app = get_object_or_404(JobApplication, pk=pk)
-    app.delete()
+    application = get_object_or_404(JobApplication, pk=pk)
+    if request.method == 'POST':
+        application.delete()
+        messages.success(request, 'Application deleted successfully.')
     return redirect('view_applications')
+
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import JobDetails
+from .forms import JobDetailsForm  # Create this form next
 
 def manage_jobs(request):
     jobs = JobDetails.objects.all()
-    return render(request, 'admin_jobs.html', {'jobs': jobs})
+    return render(request, 'manage_jobs.html', {'jobs': jobs})
 
 def add_job(request):
     if request.method == 'POST':
@@ -136,10 +145,10 @@ def add_job(request):
             return redirect('manage_jobs')
     else:
         form = JobDetailsForm()
-    return render(request, 'admin_add_job.html', {'form': form})
+    return render(request, 'add_edit_job.html', {'form': form, 'title': 'Add Job'})
 
-def edit_job(request, pk):
-    job = get_object_or_404(JobDetails, pk=pk)
+def edit_job(request, job_id):
+    job = get_object_or_404(JobDetails, id=job_id)
     if request.method == 'POST':
         form = JobDetailsForm(request.POST, instance=job)
         if form.is_valid():
@@ -147,9 +156,11 @@ def edit_job(request, pk):
             return redirect('manage_jobs')
     else:
         form = JobDetailsForm(instance=job)
-    return render(request, 'admin_edit_job.html', {'form': form, 'job': job})
+    return render(request, 'add_edit_job.html', {'form': form, 'title': 'Edit Job'})
 
-def delete_job(request, pk):
-    job = get_object_or_404(JobDetails, pk=pk)
+def delete_job(request, job_id):
+    job = get_object_or_404(JobDetails, id=job_id)
     job.delete()
     return redirect('manage_jobs')
+
+

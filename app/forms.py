@@ -34,3 +34,13 @@ class JobApplicationForm(forms.ModelForm):
         model = JobApplication
         fields = ['job', 'full_name', 'email', 'phone', 'address', 'resume']
 
+
+from django import forms
+from .models import JobDetails
+
+class JobDetailsForm(forms.ModelForm):
+    class Meta:
+        model = JobDetails
+        fields = '__all__'
+
+
