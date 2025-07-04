@@ -11,8 +11,12 @@ urlpatterns = [
     path('contact/', views.contact_view, name='contact'),
     path('jobs/<int:job_id>/', views.job_detail, name='job_detail'),
 
+    #admin login
+    path('admin-login/', views.admin_login, name='admin_login'),
+
+
     # Admin dashboard and sections
-    path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('dashboard/home/', views.manage_home, name='manage_home'),
     path('dashboard/about/', views.manage_about, name='manage_about'),
 
