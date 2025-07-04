@@ -18,24 +18,35 @@ def contact_view(request):
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
 
+from django.shortcuts import render
+from .models import JobDetails as Job  # or use your model directly
 
 def jobs(request):
-    jobs = Job.objects.all()
-    search_query = request.GET.get('search')
-    department = request.GET.get('department')
-    job_type = request.GET.get('type')
-    location = request.GET.get('location')
+    jobs = Job.objects.all().order_by('-id')  # show latest jobs first
+
+    search_query = request.GET.get('search', '')
+    department = request.GET.get('department', '')
+    job_type = request.GET.get('type', '')
+    location = request.GET.get('location', '')
 
     if search_query:
         jobs = jobs.filter(title__icontains=search_query)
+
     if department:
         jobs = jobs.filter(department__iexact=department)
+
     if job_type:
         jobs = jobs.filter(job_type__iexact=job_type)
+
     if location:
         jobs = jobs.filter(location__iexact=location)
 
-    return render(request, 'jobs.html', {'jobs': jobs})
+    context = {
+        'jobs': jobs,
+        'request': request  # used for filter form retention
+    }
+    return render(request, 'jobs.html', context)
+
 
 def about(request):
     about_content = AboutPage.objects.first()  # get the first and only record
