@@ -1,25 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home | OrgCareerPortal</title>
+  <title>Home | LoRaCareerPortal</title>
 
   <!-- Google Fonts and Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
 
   <header>
-    <div class="logo">OrgCareerPortal</div>
+    <div class="logo">LoRaCareerPortal</div>
     <nav>
       <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="jobs.html">Jobs</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'jobs' %}">Jobs</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>
       <div class="hamburger">&#9776;</div>
     </nav>
@@ -28,84 +29,59 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <h1>Build Your Dream Career<br>With Us</h1>
-      <p>Join a team that values innovation, growth, and work-life balance. Discover opportunities that match your skills and ambitions.</p>
+      <h1>{{ content.headline }}</h1>
+      <p>{{ content.subheadline }}</p>
       <div class="btn-group">
-        <a href="jobs.html">View Open Jobs</a>
-        <a href="about.html">Learn More</a>
+        <a href="{% url 'jobs' %}">View Open Jobs</a>
+        <a href="{% url 'about' %}">Learn More</a>
       </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats">
-      <div><h3>50+</h3><p>Open Positions</p></div>
-      <div><h3>25+</h3><p>Companies</p></div>
-      <div><h3>95%</h3><p>Success Rate</p></div>
-      <div><h3>$120K</h3><p>Avg. Salary</p></div>
+      <div><h3>{{ content.stat_positions }}</h3><p>Open Positions</p></div>
+      <div><h3>{{ content.stat_companies }}</h3><p>Companies</p></div>
+      <div><h3>{{ content.stat_success }}</h3><p>Success Rate</p></div>
+      <div><h3>{{ content.stat_salary }}</h3><p>Avg. Salary</p></div>
     </section>
 
     <!-- Why Choose Us -->
     <section class="features">
-      <h2>Why Choose Us?</h2>
+      <h2>{{ content.why_choose_us_title }}</h2>
       <div class="feature-grid">
         <div class="feature">
           <i class="fas fa-users"></i>
-          <h3>Expert Team</h3>
-          <p>Work with industry-leading professionals and expand your network.</p>
+          <h3>{{ content.feature_1_title }}</h3>
+          <p>{{ content.feature_1_description }}</p>
         </div>
         <div class="feature">
           <i class="fas fa-rocket"></i>
-          <h3>Career Growth</h3>
-          <p>Accelerate your career with mentorship and learning opportunities.</p>
+          <h3>{{ content.feature_2_title }}</h3>
+          <p>{{ content.feature_2_description }}</p>
         </div>
         <div class="feature">
           <i class="fas fa-trophy"></i>
-          <h3>Recognition</h3>
-          <p>Get recognized for your achievements and contributions.</p>
+          <h3>{{ content.feature_3_title }}</h3>
+          <p>{{ content.feature_3_description }}</p>
         </div>
         <div class="feature">
           <i class="fas fa-globe"></i>
-          <h3>Flexible Location</h3>
-          <p>Work from anywhere with our remote-first culture.</p>
+          <h3>{{ content.feature_4_title }}</h3>
+          <p>{{ content.feature_4_description }}</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Latest Jobs -->
-    <section class="jobs">
-      <h2>Latest Opportunities</h2>
-      <div class="job-grid">
-        <div class="job">
-          <h3>Senior Frontend Developer</h3>
-          <p><i class="fas fa-code"></i> Engineering &nbsp; | &nbsp; Remote &nbsp; | &nbsp; Full-time</p>
-          <p><small>Posted: 2 days ago</small></p>
-        </div>
-        <div class="job">
-          <h3>Product Manager</h3>
-          <p><i class="fas fa-box"></i> Product &nbsp; | &nbsp; New York &nbsp; | &nbsp; Full-time</p>
-          <p><small>Posted: 2 days ago</small></p>
-        </div>
-        <div class="job">
-          <h3>UX Designer</h3>
-          <p><i class="fas fa-pencil-ruler"></i> Design &nbsp; | &nbsp; Remote &nbsp; | &nbsp; Full-time</p>
-          <p><small>Posted: 2 days ago</small></p>
-        </div>
-      </div>
-      <div style="margin-top: 1.5rem;">
-        <a href="jobs.html" class="cta-btn">View All Jobs</a>
       </div>
     </section>
 
     <!-- CTA -->
     <section class="cta-section">
-      <h2>Ready to Start Your Journey?</h2>
-      <p>Take the first step towards building your dream career. Join our team and make an impact.</p><br>
-      <a href="jobs.html">Browse Jobs</a>
-      <a href="contact.html" style="margin-left: 1rem;">Contact Us</a>
+      <h2>{{ content.cta_title }}</h2>
+      <p>{{ content.cta_description }}</p><br>
+      <a href="{% url 'jobs' %}">Browse Jobs</a>
+      <a href="{% url 'contact' %}" style="margin-left: 1rem;">Contact Us</a>
     </section>
   </main>
 
-  <!-- Final Footer Section -->
+  <!-- Footer -->
   <footer>
     <div class="footer-grid">
       <div>
@@ -115,10 +91,10 @@
       <div>
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="jobs.html">Jobs</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'jobs' %}">Jobs</a></li>
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -152,4 +128,3 @@
   </script>
 </body>
 </html>
-
