@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
+from .views import admin_dashboard 
 
 urlpatterns = [
     # Public pages
@@ -9,8 +11,8 @@ urlpatterns = [
     path('contact/', views.contact_view, name='contact'),
     path('jobs/<int:job_id>/', views.job_detail, name='job_detail'),
 
-    # Custom Admin Dashboard and sections (renamed to dashboard/)
-    path('dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    # Admin dashboard and sections
+    path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('dashboard/home/', views.manage_home, name='manage_home'),
     path('dashboard/about/', views.manage_about, name='manage_about'),
 

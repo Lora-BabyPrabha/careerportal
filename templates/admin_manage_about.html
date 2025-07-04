@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit About Content</title>
+  <link rel="stylesheet" href="{% static 'css/admin_manage_about.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h2>Edit About Page Content</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'admin_dashboard' %}">← Back to Dashboard</a>
+  </div>
+</body>
+</html>
