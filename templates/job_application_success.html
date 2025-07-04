@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application Submitted | LoRa IT Innovations Pvt Ltd</title>
+  <link rel="stylesheet" href="{% static 'css/success.css' %}" />
+</head>
+<body>
+
+  <div style="text-align:center; margin-top: 100px;">
+    <h2>✅ Application Submitted Successfully!</h2>
+    <p>Thank you for applying. We’ll review your application and get back to you soon.</p>
+    <a href="{% url 'jobs' %}" style="margin-top: 20px; display:inline-block; padding:10px 20px; background:#0f172a; color:#fff; text-decoration:none; border-radius: 5px;">Back to Jobs</a>
+  </div>
+
+</body>
+</html>
