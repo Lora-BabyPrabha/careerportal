@@ -1,5 +1,11 @@
 {% extends "base_admin.html" %}
+
 {% block title %}Edit Home Content{% endblock %}
+
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/admin_manage_home.css' %}">
+{% endblock %}
 
 {% block content %}
   <div class="admin-form-container">
@@ -12,3 +18,4 @@
     <a href="{% url 'admin_dashboard' %}" class="back-link">← Back to Dashboard</a>
   </div>
 {% endblock %}
+
