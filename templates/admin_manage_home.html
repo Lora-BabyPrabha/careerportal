@@ -1,0 +1,14 @@
+{% extends "base_admin.html" %}
+{% block title %}Edit Home Content{% endblock %}
+
+{% block content %}
+  <div class="admin-form-container">
+    <h1>Edit Home Content</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'admin_dashboard' %}" class="back-link">← Back to Dashboard</a>
+  </div>
+{% endblock %}

@@ -12,12 +12,12 @@ urlpatterns = [
 
     # Admin dashboard and sections
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
-    path('admin/home/', views.manage_home, name='manage_home'),
-    path('admin/about/', views.manage_about, name='manage_about'),
+    path('dashboard/home/', views.manage_home, name='manage_home'),
+    path('dashboard/about/', views.manage_about, name='manage_about'),
 
     # Messages
-    path('admin/messages/', views.view_messages, name='view_messages'),
-    path('admin/messages/delete/<int:pk>/', views.delete_message, name='delete_message'),
+    path('dashboard/messages/', views.view_messages, name='view_messages'),
+    path('dashboard/messages/delete/<int:pk>/', views.delete_message, name='delete_message'),
 
     # Applications
     path('admin/applications/', views.view_applications, name='view_applications'),
