@@ -22,6 +22,7 @@ A fully functional Career Portal offering a clean, responsive interface for job 
 - **Database:** SQLite (default Django DB)
 - **Other Tools:** Bootstrap, Font Awesome
 
+
 ## Installation and Setup Instructions
 
 1. **Create Project Directory**
@@ -57,6 +58,7 @@ A fully functional Career Portal offering a clean, responsive interface for job 
    - Configure Database in settings.py ( Used default Database)
    - Add static and media settings for serving CSS and file uploads.
    - Set timezone and language
+
 6. **Apply Migrations**
    ```bash
    python manage.py makemigrations
@@ -109,6 +111,7 @@ A fully functional Career Portal offering a clean, responsive interface for job 
     ├── db.sqlite3                # SQLite database (default)
     └── README.md                 # Project overview and setup instructions
 
+
 ## Development Workflow
 
  **Create templates** 
@@ -149,6 +152,7 @@ view_messages.html – Read contact form submissions
 
 1. Define Models
 Create model classes to represent each feature (e.g., JobDetails, JobApplication).
+Whenever we change models, run makemigrations and migrate to apply changes to the database.
 
 2. Create Forms
 Use ModelForm to handle form creation and validation based on models.
